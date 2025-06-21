@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  ichiran-db:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_USER: ichiran
+      POSTGRES_PASSWORD: ichiran
+      POSTGRES_DB: ichiran
+    volumes:
+      - ichiran_db:/var/lib/postgresql/data
+
+  ichiran-core:
+    image: ghcr.io/tshatrov/ichiran:latest
+    restart: always
+    depends_on:
+      - ichiran-db
+    environment:
+      PGUSER: ichiran
+      PGPASSWORD: ichiran
+      PGHOST: ichiran-db
+      PGDATABASE: ichiran
+    ports:
+      - "4000:4000"
+    volumes:
+      - ichiran_data:/usr/share/ichiran
+
+  go-api:
+    build: .
+    depends_on:
+      - ichiran-core
+    ports:
+      - "8080:8080"
+
+volumes:
+  ichiran_db:
+  ichiran_data:
