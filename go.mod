@@ -1,8 +1,6 @@
 module github.com/binhkid2/go-ichiran-api
 
-go 1.23.4
-
-toolchain go1.24.3
+go 1.24.3
 
 require (
 	github.com/gorilla/mux v1.8.1
