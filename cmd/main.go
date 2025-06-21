@@ -3,16 +3,18 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/binhkid2/go-ichiran-api/internal/config"
-	"github.com/binhkid2/go-ichiran-api/internal/handler"
-	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
-	"github.com/tassa-yoniso-manasi-karoto/go-ichiran"
+
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
+
+	"github.com/binhkid2/go-ichiran-api/internal/config"
+	"github.com/binhkid2/go-ichiran-api/internal/handler"
+	"github.com/gorilla/mux"
+	"github.com/sirupsen/logrus"
+	"github.com/tassa-yoniso-manasi-karoto/go-ichiran"
 )
 
 func main() {
