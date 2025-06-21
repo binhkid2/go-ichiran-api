@@ -7,11 +7,10 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock # Allows go-ichiran to manage Ichiran containers
+      - ~/.config/ichiran:/root/.config/ichiran # Persists Ichiran data (~5GB)
     environment:
       - PORT=8080
-    depends_on:
-      - ichiran
     networks:
       - ichiran-network
 
