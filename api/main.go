@@ -2,10 +2,11 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/tassa-yoniso-manasi-karoto/go-ichiran/ichiran"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/tassa-yoniso-manasi-karoto/go-ichiran"
 )
 
 type Input struct {
