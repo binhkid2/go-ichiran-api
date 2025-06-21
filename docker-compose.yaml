@@ -5,12 +5,12 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8081:8080"
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock # Allows go-ichiran to manage Ichiran containers
-      - ~/.config/ichiran:/root/.config/ichiran # Persists Ichiran data (~5GB)
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/youruser/.config/ichiran:/root/.config/ichiran
     environment:
-      - PORT=8080
+      - PORT=8080 # Match the internal port the app binds to
     networks:
       - ichiran-network
 
